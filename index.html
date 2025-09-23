@@ -22,6 +22,24 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+  /* Ensure body works with Bootstrap scrollspy */
+  body {
+    position: relative;
+    scroll-behavior: smooth; /* smooth scrolling on click */
+  }
+
+  /* Fix section spacing (navbar offset on mobile) */
+  section {
+    scroll-margin-top: 80px; /* adjust for your navbar height */
+  }
+
+  /* Mobile nav fix: make sure menu closes after click */
+  .navbar-nav .nav-link {
+    cursor: pointer;
+  }
+</style>
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
@@ -820,6 +838,18 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
+  <script>
+  // Close navbar after clicking on a link (for mobile)
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const navbar = document.querySelector('.navbar-collapse');
+      if (navbar.classList.contains('show')) {
+        $('.navbar-collapse').collapse('hide'); // requires Bootstrap JS
+      }
+    });
+  });
+</script>
+
     
   </body>
 </html>
