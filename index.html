@@ -22,21 +22,22 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-  /* Fix scrolling issue on mobile */
-  .js-fullheight,
-  .hero,
-  .one-forth,
-  .one-third {
-    min-height: 100vh !important; /* allow scroll beyond screen */
-    height: auto !important;      /* remove JS lock */
-  }
+     <style>
+      html, body {
+        overflow-x: hidden;
+        overflow-y: auto !important;
+        height: auto !important;
+      }
 
-  body, html {
-    overflow-x: hidden;
-    overflow-y: auto !important;
-  }
-</style>
+      /* Override js-fullheight issue */
+      .js-fullheight,
+      .hero,
+      .one-forth,
+      .one-third {
+        min-height: 100vh !important; /* allow scrolling */
+        height: auto !important;      /* remove strict vh lock */
+      }
+    </style>
 
 
   </head>
