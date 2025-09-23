@@ -23,22 +23,21 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-  /* Ensure body works with Bootstrap scrollspy */
-  body {
-    position: relative;
-    scroll-behavior: smooth; /* smooth scrolling on click */
+  /* Fix scrolling issue on mobile */
+  .js-fullheight,
+  .hero,
+  .one-forth,
+  .one-third {
+    min-height: 100vh !important; /* allow scroll beyond screen */
+    height: auto !important;      /* remove JS lock */
   }
 
-  /* Fix section spacing (navbar offset on mobile) */
-  section {
-    scroll-margin-top: 80px; /* adjust for your navbar height */
-  }
-
-  /* Mobile nav fix: make sure menu closes after click */
-  .navbar-nav .nav-link {
-    cursor: pointer;
+  body, html {
+    overflow-x: hidden;
+    overflow-y: auto !important;
   }
 </style>
+
 
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
