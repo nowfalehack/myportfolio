@@ -25,69 +25,42 @@
 
     <!-- --------- SCROLLING FIXES (DO NOT REMOVE) --------- -->
     <style>
-      /* Allow natural page scrolling and smooth anchor scrolling */
+      /* Make sure body handles scrolling */
       html, body {
+        width: 100% !important;
         height: auto !important;
-        min-height: 100% !important;
         overflow-x: hidden !important;
         overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch; /* smooth touch scroll on iOS */
+        position: relative !important;
       }
 
-      body {
-        position: relative !important;     /* needed for scrollspy */
-        scroll-behavior: smooth;           /* smooth scrolling for anchors */
-      }
-
-      /* Hide loader overlay if still present (prevents blocking touches) */
-      #ftco-loader { display: none !important; pointer-events: none !important; }
-
-      /* Make overlay not capture touch events so touches pass through */
-      .overlay { pointer-events: none !important; }
-
-      /* Prevent js applied height:100vh from locking scrolling.
-         Keep min-height so it still visually fills screen on desktop. */
-      .js-fullheight,
-      .one-third.js-fullheight,
-      .one-forth,
-      .one-third,
+      /* Prevent sections from trapping scroll */
       .home-slider,
-      .slider-item {
-        height: auto !important;
-        min-height: 50vh !important;
+      .hero-wrap,
+      .slider-item,
+      .js-fullheight {
         overflow: visible !important;
+        height: auto !important;
+        min-height: 100vh !important;
       }
 
-      /* On larger screens keep full-screen visual */
-      @media (min-width: 992px) {
-        .js-fullheight { min-height: 100vh !important; }
-      }
-
-      /* On small devices, allow sections to flow naturally and avoid locking */
-      @media (max-width: 991px) {
+      @media (max-width: 767px) {
         .home-slider,
         .slider-item,
         .one-third,
-        .one-forth,
-        .js-fullheight {
+        .one-forth {
           height: auto !important;
-          min-height: 40vh !important;
         }
-
-        /* Give top offset so anchor jumps don't hide behind fixed nav */
-        section { scroll-margin-top: 70px; }
-        body { padding-top: 70px; } /* if your navbar is fixed */
       }
 
-      /* If any element mistakenly set overflow:hidden on html/body, force scroll */
-      html[style], body[style] { overflow-y: auto !important; }
-
-      /* keep hero buttons readable on small screens */
-      .hero .btn { white-space: normal; word-break: break-word; }
-
-      /* Ensure project cards show (filtering script toggles display) */
-      .project-card { display: block; }
+      /* Ensure buttons don't break */
+      .hero .btn {
+        white-space: normal;
+        word-wrap: break-word;
+      }
     </style>
+      /* On small devices, allow sections to flow naturally and avoid locking */
+     
     <!-- --------------------------------------------------- -->
 
   </head>
