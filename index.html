@@ -22,24 +22,15 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- --------- SCROLLING FIXES (DO NOT REMOVE) --------- -->
-    <style>
-      /* Make sure body handles scrolling */
+     <style>
       html, body {
-        width: 100% !important;
-        height: auto !important;
-        overflow-x: hidden !important;
+        overflow-x: hidden;
         overflow-y: auto !important;
-        position: relative !important;
+        height: auto !important;
       }
 
-      /* Prevent sections from trapping scroll */
-      .home-slider,
-      .hero-wrap,
-      .slider-item,
+      /* Override js-fullheight issue */
       .js-fullheight {
-        overflow: visible !important;
         height: auto !important;
         min-height: 100vh !important;
       }
@@ -59,9 +50,6 @@
         word-wrap: break-word;
       }
     </style>
-      
-     
-    <!-- --------------------------------------------------- -->
 
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -333,6 +321,7 @@
 
 
 
+    
 		
 		<section class="ftco-section" id="skills-section">
   <div class="container">
@@ -724,6 +713,7 @@
 
 
     
+    
 
    
 
@@ -859,56 +849,20 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
-
-  <!-- --------- JS OVERRIDES TO ENABLE MOBILE SCROLL --------- -->
   <script>
-    (function() {
-      // hide loader if still visible
-      var loader = document.getElementById('ftco-loader');
-      if (loader) {
-        loader.style.display = 'none';
-        loader.classList.remove('show');
-      }
-
-      // Force js-fullheight elements to auto height on small screens
-      function applyHeightFix() {
-        var small = window.innerWidth < 992; // treat <992 as tablet/mobile
-        document.querySelectorAll('.js-fullheight, .one-third, .one-forth, .home-slider, .slider-item').forEach(function(el) {
-          if (small) {
-            el.style.height = 'auto';
-            el.style.minHeight = '40vh';
-            el.style.overflow = 'visible';
-          } else {
-            // keep a large min-height on desktops
-            el.style.minHeight = '100vh';
-            el.style.height = 'auto';
-            el.style.overflow = 'visible';
-          }
+  document.addEventListener("DOMContentLoaded", function() {
+    function fixHeight() {
+      if (window.innerWidth < 768) {
+        document.querySelectorAll('.js-fullheight').forEach(el => {
+          el.style.height = "auto";
         });
-        // ensure html/body allow scroll
-        document.documentElement.style.overflowY = 'auto';
-        document.body.style.overflowY = 'auto';
       }
+    }
+    fixHeight();
+    window.addEventListener("resize", fixHeight);
+  });
+</script>
 
-      // run on load and resize
-      window.addEventListener('load', applyHeightFix);
-      window.addEventListener('resize', applyHeightFix);
-      document.addEventListener('DOMContentLoaded', applyHeightFix);
-
-      // Close the bootstrap navbar on mobile after clicking a link
-      document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
-        link.addEventListener('click', function() {
-          if (window.innerWidth < 992) {
-            try { jQuery('.navbar-collapse').collapse('hide'); } catch(e) {}
-          }
-        });
-      });
-
-      // Extra safety: make overlays pass pointer events
-      document.querySelectorAll('.overlay').forEach(function(o){ o.style.pointerEvents = 'none'; });
-    })();
-  </script>
-  <!-- ------------------------------------------------------ -->
     
   </body>
 </html>
