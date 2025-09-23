@@ -22,23 +22,73 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-     <style>
+
+    <!-- --------- SCROLLING FIXES (DO NOT REMOVE) --------- -->
+    <style>
+      /* Allow natural page scrolling and smooth anchor scrolling */
       html, body {
-        overflow-x: hidden;
-        overflow-y: auto !important;
         height: auto !important;
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch; /* smooth touch scroll on iOS */
       }
 
-      /* Override js-fullheight issue */
+      body {
+        position: relative !important;     /* needed for scrollspy */
+        scroll-behavior: smooth;           /* smooth scrolling for anchors */
+      }
+
+      /* Hide loader overlay if still present (prevents blocking touches) */
+      #ftco-loader { display: none !important; pointer-events: none !important; }
+
+      /* Make overlay not capture touch events so touches pass through */
+      .overlay { pointer-events: none !important; }
+
+      /* Prevent js applied height:100vh from locking scrolling.
+         Keep min-height so it still visually fills screen on desktop. */
       .js-fullheight,
-      .hero,
+      .one-third.js-fullheight,
       .one-forth,
-      .one-third {
-        min-height: 100vh !important; /* allow scrolling */
-        height: auto !important;      /* remove strict vh lock */
+      .one-third,
+      .home-slider,
+      .slider-item {
+        height: auto !important;
+        min-height: 50vh !important;
+        overflow: visible !important;
       }
-    </style>
 
+      /* On larger screens keep full-screen visual */
+      @media (min-width: 992px) {
+        .js-fullheight { min-height: 100vh !important; }
+      }
+
+      /* On small devices, allow sections to flow naturally and avoid locking */
+      @media (max-width: 991px) {
+        .home-slider,
+        .slider-item,
+        .one-third,
+        .one-forth,
+        .js-fullheight {
+          height: auto !important;
+          min-height: 40vh !important;
+        }
+
+        /* Give top offset so anchor jumps don't hide behind fixed nav */
+        section { scroll-margin-top: 70px; }
+        body { padding-top: 70px; } /* if your navbar is fixed */
+      }
+
+      /* If any element mistakenly set overflow:hidden on html/body, force scroll */
+      html[style], body[style] { overflow-y: auto !important; }
+
+      /* keep hero buttons readable on small screens */
+      .hero .btn { white-space: normal; word-break: break-word; }
+
+      /* Ensure project cards show (filtering script toggles display) */
+      .project-card { display: block; }
+    </style>
+    <!-- --------------------------------------------------- -->
 
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -310,7 +360,6 @@
 
 
 
-    
 		
 		<section class="ftco-section" id="skills-section">
   <div class="container">
@@ -702,7 +751,6 @@
 
 
     
-    
 
    
 
@@ -838,18 +886,56 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
-  <script>
-  // Close navbar after clicking on a link (for mobile)
-  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      const navbar = document.querySelector('.navbar-collapse');
-      if (navbar.classList.contains('show')) {
-        $('.navbar-collapse').collapse('hide'); // requires Bootstrap JS
-      }
-    });
-  });
-</script>
 
+  <!-- --------- JS OVERRIDES TO ENABLE MOBILE SCROLL --------- -->
+  <script>
+    (function() {
+      // hide loader if still visible
+      var loader = document.getElementById('ftco-loader');
+      if (loader) {
+        loader.style.display = 'none';
+        loader.classList.remove('show');
+      }
+
+      // Force js-fullheight elements to auto height on small screens
+      function applyHeightFix() {
+        var small = window.innerWidth < 992; // treat <992 as tablet/mobile
+        document.querySelectorAll('.js-fullheight, .one-third, .one-forth, .home-slider, .slider-item').forEach(function(el) {
+          if (small) {
+            el.style.height = 'auto';
+            el.style.minHeight = '40vh';
+            el.style.overflow = 'visible';
+          } else {
+            // keep a large min-height on desktops
+            el.style.minHeight = '100vh';
+            el.style.height = 'auto';
+            el.style.overflow = 'visible';
+          }
+        });
+        // ensure html/body allow scroll
+        document.documentElement.style.overflowY = 'auto';
+        document.body.style.overflowY = 'auto';
+      }
+
+      // run on load and resize
+      window.addEventListener('load', applyHeightFix);
+      window.addEventListener('resize', applyHeightFix);
+      document.addEventListener('DOMContentLoaded', applyHeightFix);
+
+      // Close the bootstrap navbar on mobile after clicking a link
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (window.innerWidth < 992) {
+            try { jQuery('.navbar-collapse').collapse('hide'); } catch(e) {}
+          }
+        });
+      });
+
+      // Extra safety: make overlays pass pointer events
+      document.querySelectorAll('.overlay').forEach(function(o){ o.style.pointerEvents = 'none'; });
+    })();
+  </script>
+  <!-- ------------------------------------------------------ -->
     
   </body>
 </html>
