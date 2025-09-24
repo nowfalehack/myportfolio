@@ -22,37 +22,11 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-     <style>
-      html, body {
-        overflow-x: hidden;
-        overflow-y: auto !important;
-        height: auto !important;
-      }
-
-      /* Override js-fullheight issue */
-      .js-fullheight {
-        height: auto !important;
-        min-height: 100vh !important;
-      }
-
-      @media (max-width: 767px) {
-        .home-slider,
-        .slider-item,
-        .one-third,
-        .one-forth {
-          height: auto !important;
-        }
-      }
-
-      /* Ensure buttons don't break */
-      .hero .btn {
-        white-space: normal;
-        word-wrap: break-word;
-      }
-    </style>
+    
 
   </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body data-spy="scroll" data-target="#ftco-navbar" data-offset="80">
+
 	  
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
@@ -74,129 +48,94 @@
 	      </div>
 	    </div>
 	  </nav>
-	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
-	      <div class="slider-item ">
-	      	<div class="overlay"></div>
-	        <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.png);">
-	          		<div class="overlay"></div>
-	          	</div>
-		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Nowfal Nazar</span></h1>
-<p>
-  <!-- Hire Me: send email -->
-  <a href="mailto:nowfalnazar786@gmail.com" class="btn btn-primary py-3 px-4">
-    Hire me
-  </a>
+	 
+<section class="hero-modern" id="home-section">
+  <div class="container hero-container">
+    <!-- Text -->
+    <div class="hero-text">
+      <p class="hello">Hi,</p>
+      <h1>I’m <span class="accent">Nowfal Nazar</span></h1>
+      <h2>Full Stack Developer</h2>
 
-  <!-- (Optional: call directly on mobile) -->
-  <!-- <a href="tel:+918281075136" class="btn btn-primary py-3 px-4">Hire me</a> -->
+      <div class="hero-buttons">
+        <a href="mailto:nowfalnazar786@gmail.com" class="btn btn-hire">Hire Me</a>
+        <a href="#projects-section" class="btn btn-works">My Works</a>
+      </div>
+    </div>
 
-  <!-- My Works: jump to Projects/Works section -->
-  <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">
-    My works
-  </a>
-</p>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
+    <!-- Image -->
+    <div class="hero-image clean">
+      <img src="images/bg_2.png" alt="Nowfal Nazar">
+    </div>
+  </div>
+</section>
 
-	      <div class="slider-item">
-	      	<div class="overlay"></div>
-	        <div class="container">
-	          <div class="row d-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_2.png);">
-	          		<div class="overlay"></div>
-	          	</div>
-		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">Full Stack Developer - <span>Web and Mobile</span></h1>
-<p>
-  <!-- Hire Me: send email -->
-  <a href="mailto:nowfalnazar786@gmail.com" class="btn btn-primary py-3 px-4">
-    Hire me
-  </a>
 
-  <!-- (Optional: call directly on mobile) -->
-  <!-- <a href="tel:+918281075136" class="btn btn-primary py-3 px-4">Hire me</a> -->
 
-  <!-- My Works: jump to Projects/Works section -->
-  <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">
-    My works
-  </a>
-</p>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
-	    </div>
-    </section>
 
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-    	<div class="container">
-    		<div class="row d-flex">
-    			<div class="col-md-6 col-lg-5 d-flex">
-    				<div class="img-about img d-flex align-items-stretch">
-    					<div class="overlay"></div>
-	    				<div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/about.png);">
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-    				<div class="row justify-content-start pb-3">
-		          <div class="col-md-12 heading-section ftco-animate">
-		          	<h1 class="big">About</h1>
-		            <h2 class="mb-4">About Me</h2>
-		            <p>
-  I’m <strong>Nowfal Nazar</strong>, a passionate 
-  <strong>Full Stack Developer (Mobile & Web)</strong> with expertise in building 
-  scalable, user-friendly applications. With hands-on experience in 
-  <strong>Android (Java, Flutter)</strong>, 
-  <strong>Web Development (PHP, Laravel, CodeIgniter, Next.js, Angular, ASP.NET)</strong>, 
-  and strong knowledge of <strong>databases (MySQL, PostgreSQL, NoSQL)</strong>, 
-  I specialize in delivering efficient and high-performing digital solutions.
-</p>
-
-<p>
-  Over the years, I’ve developed and deployed applications across platforms—from 
-  crafting responsive web applications to publishing Android apps on the Play Store. 
-  I enjoy working with modern technologies like <strong>Firebase, AWS, and Node.js</strong>, 
-  ensuring seamless integration, security, and performance.
-</p>
-
-<p>
-  Beyond coding, I’m highly motivated to solve problems, optimize workflows, 
-  and continuously learn emerging technologies. My goal is to create impactful 
-  applications that simplify lives and enhance user experiences.
-</p>
-
-		          </div>
-		        </div>
-	          <div class="counter-wrap ftco-animate d-flex mt-md-3">
-              <div class="text">
-              	<p class="mb-4">
-	                <span class="number" data-number="58">0</span>
-	                <span>Project complete</span>
-                </p>
-<p>
-  <a href="assets/cv/mycv.pdf" class="btn btn-primary py-3 px-3" target="_blank" download>
-    Download CV
-  </a>
-</p>
-              </div>
-	          </div>
-	        </div>
+<!-- ABOUT SECTION -->
+<section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+  <div class="container">
+    <div class="row d-flex">
+      <!-- Image -->
+      <div class="col-md-6 col-lg-5 d-flex">
+        <div class="img-about img d-flex align-items-stretch">
+          <div class="overlay"></div>
+          <div class="img d-flex align-self-stretch align-items-center"
+            style="background-image:url(images/about.png);">
+          </div>
         </div>
-    	</div>
-    </section>
+      </div>
+
+      <!-- Text -->
+      <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+        <div class="row justify-content-start pb-3">
+          <div class="col-md-12 heading-section ftco-animate">
+            <h1 class="big">About</h1>
+            <h2 class="mb-4">About Me</h2>
+            <p>
+              I’m <strong>Nowfal Nazar</strong>, a passionate
+              <strong>Full Stack Developer (Mobile & Web)</strong> with expertise in building
+              scalable, user-friendly applications. With hands-on experience in
+              <strong>Android (Java, Flutter)</strong>,
+              <strong>Web Development (PHP, Laravel, CodeIgniter, Next.js, Angular, ASP.NET)</strong>,
+              and strong knowledge of <strong>databases (MySQL, PostgreSQL, NoSQL)</strong>,
+              I specialize in delivering efficient and high-performing digital solutions.
+            </p>
+
+            <p>
+              Over the years, I’ve developed and deployed applications across platforms—from
+              crafting responsive web applications to publishing Android apps on the Play Store.
+              I enjoy working with modern technologies like <strong>Firebase, AWS, and Node.js</strong>,
+              ensuring seamless integration, security, and performance.
+            </p>
+
+            <p>
+              Beyond coding, I’m highly motivated to solve problems, optimize workflows,
+              and continuously learn emerging technologies. My goal is to create impactful
+              applications that simplify lives and enhance user experiences.
+            </p>
+          </div>
+        </div>
+        <div class="counter-wrap ftco-animate d-flex mt-md-3">
+          <div class="text">
+            <p class="mb-4">
+              <span class="number" data-number="58">0</span>
+              <span>Project complete</span>
+            </p>
+            <p>
+              <a href="assets/cv/mycv.pdf" class="btn btn-primary py-3 px-3" target="_blank" download>
+                Download CV
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
 
     <!-- Make sure Font Awesome is included in your <head> -->
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
@@ -849,19 +788,7 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
-  <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    function fixHeight() {
-      if (window.innerWidth < 768) {
-        document.querySelectorAll('.js-fullheight').forEach(el => {
-          el.style.height = "auto";
-        });
-      }
-    }
-    fixHeight();
-    window.addEventListener("resize", fixHeight);
-  });
-</script>
+  
 
     
   </body>
